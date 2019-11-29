@@ -1,11 +1,16 @@
-from app import db
+from application import db
 
 class DBProvider:
     def __init__(self):
-        self.applications = db.AppDatabase
+        self.applications = db.AppDatabase.Apps
 
     def getApplicationsDictionaty(self):
-        return self.applications.find()
+        apps = self.applications.find()
+        app_dict = []
+        for a in apps:
+            app_dict.append(a)
+        return app_dict
 
     def saveApplicationDictionary(self,app):
         self.applications.insert_one(app)
+
