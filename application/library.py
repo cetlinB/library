@@ -5,8 +5,6 @@ import json
 
 db_worker = DBProvider()
 
-db_worker.getApplicationsDictionaty()
-
 dummySchema = [
                         {
                             "name": "Variable X",

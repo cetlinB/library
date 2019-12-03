@@ -8,6 +8,7 @@ class DBProvider:
         apps = self.applications.find()
         app_dict = []
         for a in apps:
+            del a['_id']
             app_dict.append(a)
         return app_dict
 
