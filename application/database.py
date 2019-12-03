@@ -1,4 +1,5 @@
 from application import db
+from model.application import Application
 
 class DBProvider:
     def __init__(self):
@@ -9,7 +10,8 @@ class DBProvider:
         app_dict = []
         for a in apps:
             del a['_id']
-            app_dict.append(a)
+            app = Application(a)
+            app_dict.append(app.__repr__())
         return app_dict
 
     def saveApplicationDictionary(self,app):
