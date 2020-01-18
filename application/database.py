@@ -1,5 +1,6 @@
 from application import db
 from model.application import Application
+import json
 
 class DBProvider:
     def __init__(self):
@@ -22,5 +23,9 @@ class DBProvider:
         self.applications.insert_one(app)
 
     def getApplicationCSP(self, app_id):
-        app = self.applications.find_one({"id":app_id})
-        return app['computationStepsPackage']
+        try:
+            app = self.applications.find_one({"id":app_id})
+            print(app)
+            return json.dumps(app['computationStepsPackage'])
+        except Exception:
+            return json.dumps("")

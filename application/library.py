@@ -118,7 +118,7 @@ def get_applications():
         form_data = request.form
         print(dummySchema if 'fibonacci' in form_data else (schemaMoreDummyThanDummy if 'nothing' in form_data else otherSchema))
         app = {
-            'id': db_worker.getApplicationsDictionary().__len__(),
+            'id': db_worker.getApplicationsDictionary().__len__().__str__(),
             'name': form_data['name'],
             'description': form_data['description'],
             'icon': form_data['icon'],
