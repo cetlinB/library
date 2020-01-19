@@ -126,6 +126,7 @@ def get_applications():
             'computationStepsPackage': computation_step_package_fibonacci if 'fibonacci' in form_data else
                                         (computation_step_package_cyberpunk if 'nothing' in form_data else computation_step_package_default )
         }
+        app['computationStepsPackage']['applicationId'] = app['id']
         print("app created")
         db_worker.saveApplicationDictionary(app)
         print("post ended")
